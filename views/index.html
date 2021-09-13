@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Bank</title>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-inner">
+          <div class="logo">
+              <h1>
+                  Digital - Bank
+              </h1>
+          </div>     
+          <form class="login-form" id="formLogin">
+            <div class="input-container">
+              <label for="cpf">CPF</label>
+              <input id="cpf" name="cpf" type="text" placeholder="digite o cpf...">
+            </div>
+      
+            <div class="input-container">
+              <label for="secret">Senha</label>
+              <input id="secret" name="secret" type="password" placeholder="digite a senha">
+            </div>
+      
+            <input class="submit-button btn" type="submit" value="Entrar">
+          </form>
+        </div>
+        <div>
+          <nav id="menu-h">
+            <ul>
+                <li>
+                  <button id="btn-new-account" class="btn">Nova Conta</button>
+                </li>
+                <li>
+                  <button id="btn-transferencia" class="btn">Transferencia</button>
+                </li>
+                <li>
+                  <button id="btn-deposito" class="btn">Depositar</button>
+                </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <dialog id="dialog-cadastrar-nova-conta">
+        <fieldset>
+          <legend>
+            <h2>Cadastrar Nova Senha</h2>
+          </legend>
+        </fieldset>
+        <form id="formNewAccount">
+            <div>
+              <label>Nome</label>
+              <input type="text" name="name" id="name-account" placeholder="Nome...">
+            </div>
+            <div>
+              <label>CPF</label>
+              <input type="text" name="cpf" id="cpf-account" placeholder="CPF...">
+            </div>
+            <div>
+              <label>Senha</label>
+              <input name="secret" id="secret-account" type="password" placeholder="Senha..." >
+            </div>
+          <div class="menu">
+              <button type="submit">Cadastrar</button>
+              <button id="cancel-new-account" type="reset">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+
+
+      <dialog id="dialog-deposito">
+        <fieldset>
+          <legend>
+            <h2>Depositar</h2>
+          </legend>
+        </fieldset>
+        <form id="frmDeposito">
+            <div>
+              <label>Valor</label>
+              <input name="deposit_amount" id="account-deposit" type="text" placeholder="Valor..." >
+            </div>
+          <div class="menu">
+              <button type="submit">Depositar</button>
+              <button id="cancel-deposit" type="reset">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="dialog-transferencia">
+        <fieldset>
+          <legend>
+            <h2>Transferir</h2>
+          </legend>
+        </fieldset>
+        <form id="frmTransferir">
+            <div>
+              <label>Valor</label>
+              <input name="transfer_amount" id="transfer-amount" type="text" placeholder="Valor..." >
+              <label>Beneficiado</label>
+              <select name="account_destination_id" id="account_destination_id"></select>
+            </div>
+          <div class="menu">
+              <button type="submit">Depositar</button>
+              <button id="cancel-transfer" type="reset">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+
+
+      <div class="user">
+        <h3 id="user-name"></h3>
+      </div>
+
+      <div class="saldo">
+        <p id="saldo">
+          <strong>Saldo: R$0.00</strong>
+        </p>
+      </div>
+      
+      <div>
+        <strong style="color: blue;">Transferências</strong>
+        <div id="transfers-container" class="transfers-container" style="overflow-x:auto;"></div>
+      </div>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
