@@ -192,6 +192,9 @@ const getAccounts = () => {
     })
     .then(data => {
         const select = document.getElementById("account_destination_id");
+
+        if (!select) return;
+        
         select.innerHTML = "";
         Object.entries(data).filter(i => i[1].id != parseInt(JSON.parse(localStorage.getItem('user')).id)).map(m => {
             select.options[select.options.length] = new Option(m[1].name, m[1].id);
