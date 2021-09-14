@@ -4,12 +4,10 @@ const formNewAccount = document.getElementById("formNewAccount");
 const frmDeposito = document.getElementById("frmDeposito");
 const frmTransferir = document.getElementById("frmTransferir");
 
+
+////Sessão para abrir os dialogs
 document.getElementById("btn-new-account").addEventListener("click", () => {
     document.getElementById("dialog-cadastrar-nova-conta").showModal();
-});
-
-document.getElementById("cancel-new-account").addEventListener("click", () => {
-    document.getElementById("dialog-cadastrar-nova-conta").close();
 });
 
 document.getElementById("btn-deposito").addEventListener("click", () => {
@@ -20,6 +18,21 @@ document.getElementById("btn-transferencia").addEventListener("click", () => {
     getAccounts();
     document.getElementById("dialog-transferencia").showModal();
 });
+
+//Sessão para fechar os dialogs
+document.getElementById("cancel-new-account").addEventListener("click", () => {
+    document.getElementById("dialog-cadastrar-nova-conta").close();
+});
+
+document.getElementById("cancel-deposit").addEventListener("click", () => {
+    document.getElementById("dialog-deposito").close();
+});
+
+document.getElementById("cancel-transfer").addEventListener("click", () => {
+    document.getElementById("dialog-transferencia").close();
+});
+
+
 
 
 formNewAccount.onsubmit = async (e) => {
@@ -194,7 +207,7 @@ const getAccounts = () => {
         const select = document.getElementById("account_destination_id");
 
         if (!select) return;
-        
+
         select.innerHTML = "";
         Object.entries(data).filter(i => i[1].id != parseInt(JSON.parse(localStorage.getItem('user')).id)).map(m => {
             select.options[select.options.length] = new Option(m[1].name, m[1].id);
