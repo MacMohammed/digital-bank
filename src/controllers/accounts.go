@@ -40,7 +40,6 @@ func GetAccounts(w http.ResponseWriter, r *http.Request) {
 
 //GetBalance retorna o saldo de um conta
 func GetBalance(w http.ResponseWriter, r *http.Request) {
-	
 	parametros := mux.Vars(r)
 	accountID, err := strconv.ParseUint(parametros["account_id"], 10, 64)
 	if err != nil {
